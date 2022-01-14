@@ -5,6 +5,11 @@ export const Wrapper = styled.header`
   ${({ theme }) => css`
     height: 6rem;
     background-color: ${theme.colors.secondary};
+    position: fixed;
+    width: 100%;
+    z-index: ${theme.layers.aboveAll};
+
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.85);
   `}
 `
 export const Content = styled.div`
@@ -15,6 +20,10 @@ export const Content = styled.div`
 
 export const Logo = styled.img`
   height: 5.5rem;
+
+  ${media.lessThan('small')`
+  height: 4rem;
+  `}
 `
 
 export const Menu = styled.nav`
@@ -80,11 +89,12 @@ const MenuMobileModifers = {
 
 export const MenuMobile = styled.nav<OpenProps>`
   ${({ theme, open }) => css`
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 0;
     background-color: ${theme.colors.highlight};
     transition: height 0.3s ease-in-out;
+    z-index: ${theme.layers.aboveAll};
 
     ${open && MenuMobileModifers.open()}
     ${media.greaterThan('medium')`

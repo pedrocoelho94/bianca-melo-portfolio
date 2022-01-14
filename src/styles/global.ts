@@ -22,6 +22,18 @@ const GlobalStyles = createGlobalStyle`
     font: 400 1.6rem "Roboto", sans-serif;
   }
 
+  @media (max-width: 235px){
+    html {
+      font-size: 50%;
+    }
+  }
+
+  @media (max-width: 180px){
+    html {
+      font-size: 43.75%;
+    }
+  }
+
   button{
     cursor: pointer;
   }

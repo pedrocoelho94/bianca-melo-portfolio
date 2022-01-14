@@ -14,7 +14,8 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "postinstall": "husky install",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "codegen": "graphql-codegen --config codegen.yml"
   },
   "lint-staged": {
     "src/**/*": [
@@ -24,6 +25,8 @@
   },
   "dependencies": {
     "@styled-icons/material-outlined": "^10.34.0",
+    "graphql": "^16.2.0",
+    "graphql-request": "^3.7.0",
     "next": "12.0.8",
     "next-pwa": "^5.3.1",
     "react": "17.0.2",
@@ -32,6 +35,10 @@
     "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
+    "@graphql-codegen/add": "^3.1.1",
+    "@graphql-codegen/cli": "2.3.1",
+    "@graphql-codegen/typescript": "2.4.2",
+    "@graphql-codegen/typescript-operations": "2.2.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@types/jest": "^27.4.0",

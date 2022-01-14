@@ -11,8 +11,8 @@ const Header = () => {
     <S.Wrapper>
       <Container>
         <S.Content>
-          <Link href="/">
-            <a>
+          <Link href="/" prefetch={false}>
+            <a onClick={() => setToggle(false)}>
               <S.Logo src="img/biancaMelo.svg" alt="Logo" />
             </a>
           </Link>

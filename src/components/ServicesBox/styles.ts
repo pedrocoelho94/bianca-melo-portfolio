@@ -31,7 +31,7 @@ export const Wrapper = styled.div`
       svg,
       span {
         transition: color 0.4s ease-in-out;
-        z-index: ${theme.layers.aboveAll};
+        z-index: ${theme.layers.layer1};
       }
 
       > svg {

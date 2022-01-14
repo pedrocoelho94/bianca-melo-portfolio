@@ -12,5 +12,6 @@ export const Content = styled.div`
   ${({ theme }) => css`
     height: 100%;
     padding: ${theme.spacings.huge} 0;
+    padding-top: calc(${theme.spacings.huge} + 6rem);
   `}
 `

@@ -36,6 +36,7 @@ export const AboutInfo = styled.p`
 `
 
 export const AboutImage = styled.img`
+  width: 100%;
   border-radius: 50%;
   max-width: 25rem;
 `

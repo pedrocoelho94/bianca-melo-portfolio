@@ -5,7 +5,7 @@ type HeaderLinkProps = {
 } & LinkProps
 
 const HeaderLink = ({ children, ...rest }: HeaderLinkProps) => (
-  <Link {...rest} passHref>
+  <Link {...rest}>
     <a>{children}</a>
   </Link>
 )
