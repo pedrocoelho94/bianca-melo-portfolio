@@ -1,3 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
-export const Section = styled.section``
+export const Section = styled.section`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacings.large};
+  `}
+`

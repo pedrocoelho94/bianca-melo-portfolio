@@ -8,7 +8,7 @@ export default {
     primary: '#D5CCFF',
     secondary: '#22212C',
     background: '#302F3D',
-    highlight: '#FFB3D9',
+    highlight: '#FF5D4C',
     warning: '#dc143c',
     success: 'rgb(172, 243, 157)',
     info: 'rgb(85, 193, 255)',

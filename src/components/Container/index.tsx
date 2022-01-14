@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Container = styled.div`
   ${({ theme }) => css`
@@ -9,9 +10,9 @@ export const Container = styled.div`
     padding-left: calc(${theme.grid.gutter});
     padding-right: calc(${theme.grid.gutter});
 
-    @media (max-width: 480px) {
-      padding-left: calc(${theme.grid.gutter} * 0.6);
-      padding-right: calc(${theme.grid.gutter}* 0.6);
-    }
+    ${media.lessThan('medium')`
+    padding-left: calc(${theme.grid.gutter} * 0.4);
+      padding-right: calc(${theme.grid.gutter}* 0.4);
+    `}
   `}
 `

@@ -10,7 +10,7 @@ export const Wrapper = styled.main`
 
 export const Content = styled.div`
   ${({ theme }) => css`
-    height: calc(100vh - 26rem);
-    padding: ${theme.spacings.large} 0;
+    height: 100%;
+    padding: ${theme.spacings.huge} 0;
   `}
 `

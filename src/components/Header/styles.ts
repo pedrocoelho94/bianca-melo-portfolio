@@ -18,11 +18,25 @@ export const Logo = styled.img`
 `
 
 export const Menu = styled.nav`
-  margin-left: auto;
-  display: flex;
-  gap: 2rem;
-  ${media.lessThan('medium')`
-    display: none;
+  ${({ theme }) => css`
+    margin-left: auto;
+    display: flex;
+    gap: 2rem;
+    font-size: 1.8rem;
+    letter-spacing: 0.3rem;
+
+    a {
+      color: ${theme.colors.primary};
+      transition: ${theme.transitions.faster};
+
+      &:hover {
+        filter: brightness(0.7);
+      }
+    }
+
+    ${media.lessThan('medium')`
+      display: none;
+    `}
   `}
 `
 export const NavIcon = styled.div`
