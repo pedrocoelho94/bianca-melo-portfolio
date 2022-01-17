@@ -13,37 +13,37 @@ const Services = () => (
   <S.Wrapper>
     <ServicesBox
       icon={<Email />}
-      link="/category/reportagens-multimidia"
+      link="/portfolio/cat/reportagens-multimidia"
       title="Reportagens Multimídia"
     />
 
     <ServicesBox
       icon={<Colorize />}
-      link="/category/artes-graficas"
+      link="/portfolio/cat/artes-graficas"
       title="Artes Gráficas"
     />
 
     <ServicesBox
       icon={<PhotoCamera />}
-      link="/category/ensaios-fotograficos"
+      link="/portfolio/cat/ensaios-fotograficos"
       title="Ensaios Fotográficos"
     />
 
     <ServicesBox
       icon={<Podcasts />}
-      link="/category/radio-e-podcast"
+      link="/portfolio/cat/radio-e-podcast"
       title="Rádio e Podcast"
     />
 
     <ServicesBox
       icon={<Article />}
-      link="/category/artigos-academicos"
+      link="/portfolio/cat/artigos-academicos"
       title="Artigos Acadêmicos"
     />
 
     <ServicesBox
       icon={<VideoCameraBack />}
-      link="/category/producoes-audiovisuais"
+      link="/portfolio/cat/producoes-audiovisuais"
       title="Produções Audiovisuais"
     />
   </S.Wrapper>

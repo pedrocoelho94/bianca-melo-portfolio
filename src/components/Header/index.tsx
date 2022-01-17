@@ -13,7 +13,7 @@ const Header = () => {
         <S.Content>
           <Link href="/" prefetch={false}>
             <a onClick={() => setToggle(false)}>
-              <S.Logo src="img/biancaMelo.svg" alt="Logo" />
+              <S.Logo src="/img/biancaMelo.svg" alt="Logo" />
             </a>
           </Link>
           <S.Menu>

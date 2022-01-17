@@ -15,11 +15,15 @@ const GlobalStyles = createGlobalStyle`
   body {
     background: ${theme.colors.background};
     color: ${theme.colors.primary};
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif
   }
 
   body, input, textarea, select, button {
     font: 400 1.6rem "Roboto", sans-serif;
+  }
+
+  img{
+    width: 100%;
   }
 
   @media (max-width: 235px){

@@ -11,6 +11,11 @@ export const Container = styled.div`
     padding-right: calc(${theme.grid.gutter});
 
     ${media.lessThan('medium')`
+    padding-left: calc(${theme.grid.gutter} * 0.6);
+      padding-right: calc(${theme.grid.gutter}* 0.6);
+    `}
+
+    ${media.lessThan('small')`
     padding-left: calc(${theme.grid.gutter} * 0.4);
       padding-right: calc(${theme.grid.gutter}* 0.4);
     `}

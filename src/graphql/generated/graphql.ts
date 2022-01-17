@@ -3555,6 +3555,7 @@ export type Project = Node & {
   description: RichText;
   /** Get the document in other stages */
   documentInStages: Array<Project>;
+  excerpt?: Maybe<Scalars['String']>;
   /** List of Project versions */
   history: Array<Version>;
   /** The unique identifier */
@@ -3667,6 +3668,7 @@ export type ProjectCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   demoProject?: InputMaybe<Scalars['String']>;
   description: Scalars['RichTextAST'];
+  excerpt?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
   tags?: InputMaybe<TagCreateManyInlineInput>;
   title: Scalars['String'];
@@ -3745,6 +3747,25 @@ export type ProjectManyWhereInput = {
   demoProject_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   demoProject_starts_with?: InputMaybe<Scalars['String']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  excerpt_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  excerpt_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  excerpt_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  excerpt_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  excerpt_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  excerpt_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  excerpt_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  excerpt_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  excerpt_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -3847,6 +3868,8 @@ export enum ProjectOrderByInput {
   CreatedAtDesc = 'createdAt_DESC',
   DemoProjectAsc = 'demoProject_ASC',
   DemoProjectDesc = 'demoProject_DESC',
+  ExcerptAsc = 'excerpt_ASC',
+  ExcerptDesc = 'excerpt_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   PublishedAtAsc = 'publishedAt_ASC',
@@ -3864,6 +3887,7 @@ export type ProjectUpdateInput = {
   cover?: InputMaybe<AssetUpdateOneInlineInput>;
   demoProject?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['RichTextAST']>;
+  excerpt?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
   tags?: InputMaybe<TagUpdateManyInlineInput>;
   title?: InputMaybe<Scalars['String']>;
@@ -3889,6 +3913,7 @@ export type ProjectUpdateManyInlineInput = {
 export type ProjectUpdateManyInput = {
   demoProject?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['RichTextAST']>;
+  excerpt?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
 };
 
@@ -3984,6 +4009,25 @@ export type ProjectWhereInput = {
   demoProject_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   demoProject_starts_with?: InputMaybe<Scalars['String']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  excerpt_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  excerpt_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  excerpt_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values that are not equal to given value. */
+  excerpt_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  excerpt_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  excerpt_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  excerpt_not_in?: InputMaybe<Array<Scalars['String']>>;
+  /** All values not starting with the given string. */
+  excerpt_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  excerpt_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -6976,4 +7020,18 @@ export enum _SystemDateTimeFieldVariation {
 export type Get_ProjectsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Get_ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, title: string, slug: string, demoProject?: string | null | undefined, cover?: { __typename?: 'Asset', url: string } | null | undefined, categories: Array<{ __typename?: 'Category', slug: string, title: string }>, description: { __typename?: 'RichText', html: string } }> };
+export type Get_ProjectsQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, demoProject?: string | null | undefined, cover?: { __typename?: 'Asset', url: string } | null | undefined, categories: Array<{ __typename?: 'Category', slug: string, title: string }>, description: { __typename?: 'RichText', html: string } }> };
+
+export type Get_Projects_By_SlugQueryVariables = Exact<{
+  categorySlug: Scalars['String'];
+}>;
+
+
+export type Get_Projects_By_SlugQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', id: string, title: string, slug: string, excerpt?: string | null | undefined, cover?: { __typename?: 'Asset', url: string } | null | undefined, categories: Array<{ __typename?: 'Category', slug: string, title: string }> }> };
+
+export type Get_Project_By_SlugQueryVariables = Exact<{
+  postSlug: Scalars['String'];
+}>;
+
+
+export type Get_Project_By_SlugQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, demoProject?: string | null | undefined, cover?: { __typename?: 'Asset', url: string } | null | undefined, description: { __typename?: 'RichText', html: string }, tags: Array<{ __typename?: 'Tag', title: string, slug: string }>, categories: Array<{ __typename?: 'Category', title: string, slug: string }> }> };
