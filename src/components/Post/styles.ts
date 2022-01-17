@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query'
 
 export const Wrapper = styled.article`
   max-width: 80rem;
@@ -22,6 +23,8 @@ export const Excerpt = styled.h2`
 export const Cover = styled.img`
   ${({ theme }) => css`
     margin-bottom: ${theme.spacings.medium};
+    max-height: 350px;
+    object-fit: cover;
   `}
 `
 
@@ -30,14 +33,20 @@ export const Info = styled.div`
     display: flex;
     gap: 2rem;
     margin-bottom: ${theme.spacings.xsmall};
+
+    ${media.lessThan('small')`
+      flex-direction: column;
+      gap: 1rem;
+    `}
   `}
 `
 
 export const Date = styled.time``
 
 export const Categories = styled.div`
-  display: inline-flex;
+  display: flex;
   gap: 1rem;
+  flex-wrap: wrap;
 `
 
 export const Tags = styled.div``
