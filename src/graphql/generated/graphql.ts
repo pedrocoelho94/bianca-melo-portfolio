@@ -3568,7 +3568,6 @@ export type Project = Node & {
   slug: Scalars['String'];
   /** System stage field */
   stage: Stage;
-  tags: Array<Tag>;
   title: Scalars['String'];
   /** The time the document was updated */
   updatedAt: Scalars['DateTime'];
@@ -3629,18 +3628,6 @@ export type ProjectScheduledInArgs = {
 };
 
 
-export type ProjectTagsArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  locales?: InputMaybe<Array<Locale>>;
-  orderBy?: InputMaybe<TagOrderByInput>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<TagWhereInput>;
-};
-
-
 export type ProjectUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
@@ -3670,7 +3657,6 @@ export type ProjectCreateInput = {
   description: Scalars['RichTextAST'];
   excerpt?: InputMaybe<Scalars['String']>;
   slug: Scalars['String'];
-  tags?: InputMaybe<TagCreateManyInlineInput>;
   title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
 };
@@ -3823,9 +3809,6 @@ export type ProjectManyWhereInput = {
   slug_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   slug_starts_with?: InputMaybe<Scalars['String']>;
-  tags_every?: InputMaybe<TagWhereInput>;
-  tags_none?: InputMaybe<TagWhereInput>;
-  tags_some?: InputMaybe<TagWhereInput>;
   title?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   title_contains?: InputMaybe<Scalars['String']>;
@@ -3889,7 +3872,6 @@ export type ProjectUpdateInput = {
   description?: InputMaybe<Scalars['RichTextAST']>;
   excerpt?: InputMaybe<Scalars['String']>;
   slug?: InputMaybe<Scalars['String']>;
-  tags?: InputMaybe<TagUpdateManyInlineInput>;
   title?: InputMaybe<Scalars['String']>;
 };
 
@@ -4085,9 +4067,6 @@ export type ProjectWhereInput = {
   slug_not_starts_with?: InputMaybe<Scalars['String']>;
   /** All values starting with the given string. */
   slug_starts_with?: InputMaybe<Scalars['String']>;
-  tags_every?: InputMaybe<TagWhereInput>;
-  tags_none?: InputMaybe<TagWhereInput>;
-  tags_some?: InputMaybe<TagWhereInput>;
   title?: InputMaybe<Scalars['String']>;
   /** All values containing the given string. */
   title_contains?: InputMaybe<Scalars['String']>;
@@ -6079,7 +6058,6 @@ export type Tag = Node & {
   /** The unique identifier */
   id: Scalars['ID'];
   post: Array<Post>;
-  project: Array<Project>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -6127,18 +6105,6 @@ export type TagPostArgs = {
 };
 
 
-export type TagProjectArgs = {
-  after?: InputMaybe<Scalars['String']>;
-  before?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
-  locales?: InputMaybe<Array<Locale>>;
-  orderBy?: InputMaybe<ProjectOrderByInput>;
-  skip?: InputMaybe<Scalars['Int']>;
-  where?: InputMaybe<ProjectWhereInput>;
-};
-
-
 export type TagPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
@@ -6179,7 +6145,6 @@ export type TagConnection = {
 export type TagCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
   post?: InputMaybe<PostCreateManyInlineInput>;
-  project?: InputMaybe<ProjectCreateManyInlineInput>;
   slug: Scalars['String'];
   title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
@@ -6256,9 +6221,6 @@ export type TagManyWhereInput = {
   post_every?: InputMaybe<PostWhereInput>;
   post_none?: InputMaybe<PostWhereInput>;
   post_some?: InputMaybe<PostWhereInput>;
-  project_every?: InputMaybe<ProjectWhereInput>;
-  project_none?: InputMaybe<ProjectWhereInput>;
-  project_some?: InputMaybe<ProjectWhereInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -6351,7 +6313,6 @@ export enum TagOrderByInput {
 
 export type TagUpdateInput = {
   post?: InputMaybe<PostUpdateManyInlineInput>;
-  project?: InputMaybe<ProjectUpdateManyInlineInput>;
   slug?: InputMaybe<Scalars['String']>;
   title?: InputMaybe<Scalars['String']>;
 };
@@ -6469,9 +6430,6 @@ export type TagWhereInput = {
   post_every?: InputMaybe<PostWhereInput>;
   post_none?: InputMaybe<PostWhereInput>;
   post_some?: InputMaybe<PostWhereInput>;
-  project_every?: InputMaybe<ProjectWhereInput>;
-  project_none?: InputMaybe<ProjectWhereInput>;
-  project_some?: InputMaybe<ProjectWhereInput>;
   publishedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -7034,4 +6992,30 @@ export type Get_Project_By_SlugQueryVariables = Exact<{
 }>;
 
 
-export type Get_Project_By_SlugQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, demoProject?: string | null | undefined, cover?: { __typename?: 'Asset', url: string } | null | undefined, description: { __typename?: 'RichText', html: string }, tags: Array<{ __typename?: 'Tag', title: string, slug: string }>, categories: Array<{ __typename?: 'Category', title: string, slug: string }> }> };
+export type Get_Project_By_SlugQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, demoProject?: string | null | undefined, cover?: { __typename?: 'Asset', url: string } | null | undefined, description: { __typename?: 'RichText', html: string }, categories: Array<{ __typename?: 'Category', title: string, slug: string }> }> };
+
+export type Get_PostsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type Get_PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any }> };
+
+export type Get_Post_By_SlugQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type Get_Post_By_SlugQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, cover?: { __typename?: 'Asset', url: string } | null | undefined, content: { __typename?: 'RichText', html: string }, categories: Array<{ __typename?: 'Category', title: string, slug: string }>, tags: Array<{ __typename?: 'Tag', title: string, slug: string }> }> };
+
+export type Get_Posts_By_CategoryQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type Get_Posts_By_CategoryQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, categories: Array<{ __typename?: 'Category', id: string, title: string, slug: string }> }> };
+
+export type Get_Posts_By_TagQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type Get_Posts_By_TagQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any }> };

@@ -3,6 +3,7 @@ import { GET_PROJECT_BY_SLUG } from 'graphql/queries'
 import { Get_Project_By_SlugQuery } from 'graphql/generated/graphql'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import ProjectTemplate from 'templates/ProjectTemplate'
+import formatDate from 'utils/format-date'
 
 type category = {
   slug: string
@@ -51,14 +52,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const post = {
     ...project,
-    createdAt: new Date(project.createdAt as string).toLocaleDateString(
-      'pt-BR',
-      {
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric'
-      }
-    )
+    createdAt: formatDate(project.createdAt as string)
   }
 
   return {

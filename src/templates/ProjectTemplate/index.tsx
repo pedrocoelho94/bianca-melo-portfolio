@@ -22,6 +22,7 @@ const ProjectTemplate = ({ project }: ProjectProps) => {
             categories={project.categories}
             demoProject={project.demoProject}
             description={project.description.html}
+            route="portfolio/cat"
           />
         </Container>
       </BaseTemplate>
