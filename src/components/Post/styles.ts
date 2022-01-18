@@ -10,6 +10,10 @@ export const Title = styled.h1`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.xlarge};
     margin-bottom: ${theme.spacings.medium};
+
+    ${media.lessThan('small')`
+      font-size: ${theme.font.sizes.large};
+    `}
   `}
 `
 
@@ -17,6 +21,10 @@ export const Excerpt = styled.h2`
   ${({ theme }) => css`
     font-size: ${theme.font.sizes.medium};
     margin-bottom: ${theme.spacings.medium};
+
+    ${media.lessThan('small')`
+      font-size: ${theme.font.sizes.normal};
+    `}
   `}
 `
 
@@ -29,15 +37,14 @@ export const Cover = styled.img`
 `
 
 export const Info = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    gap: 2rem;
-    margin-bottom: ${theme.spacings.xsmall};
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 
-    ${media.lessThan('small')`
-      flex-direction: column;
-      gap: 1rem;
-    `}
+  ${media.lessThan('small')`
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
   `}
 `
 
@@ -49,16 +56,25 @@ export const Categories = styled.div`
   flex-wrap: wrap;
 `
 
-export const Tags = styled.div``
+export const Tags = styled.div`
+  display: flex;
+  gap: 1rem;
+`
 
 export const Demo = styled.p``
 
 export const Description = styled.div`
-  letter-spacing: 0.2px;
-  line-height: 1.5;
-  font-size: 1.8rem;
+  ${({ theme }) => css`
+    letter-spacing: 0.2px;
+    line-height: 1.5;
+    font-size: ${theme.font.sizes.normal};
 
-  p {
-    margin-bottom: 4rem;
-  }
+    ${media.lessThan('small')`
+      font-size: ${theme.font.sizes.small};
+    `}
+
+    p {
+      margin-bottom: 4rem;
+    }
+  `}
 `

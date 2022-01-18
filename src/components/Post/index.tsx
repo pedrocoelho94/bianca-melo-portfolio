@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import PostTags from 'components/PostTags'
 import * as S from './styles'
 
 type category = {
@@ -20,6 +20,7 @@ export type PostProps = {
   tags?: tag[]
   description?: string
   demoProject?: string
+  route: string
 }
 
 const Post = ({
@@ -30,7 +31,8 @@ const Post = ({
   categories,
   tags,
   description,
-  demoProject
+  demoProject,
+  route
 }: PostProps) => (
   <S.Wrapper>
     <S.Title>{title}</S.Title>
@@ -41,13 +43,7 @@ const Post = ({
       <S.Date>{createdAt}</S.Date>
 
       <S.Categories>
-        {categories?.map((cat) => (
-          <Link href={`cat/${cat.slug}`} key={cat.slug}>
-            <a>
-              <div>{cat.title}</div>
-            </a>
-          </Link>
-        ))}
+        <PostTags link={categories} route={route} text="" />
       </S.Categories>
     </S.Info>
 
@@ -58,14 +54,7 @@ const Post = ({
       <S.Description dangerouslySetInnerHTML={{ __html: description }} />
     )}
 
-    {!!tags && (
-      <S.Tags>
-        Tags:
-        {tags?.map((tag) => (
-          <div key={tag.slug}>{tag.title}</div>
-        ))}
-      </S.Tags>
-    )}
+    {!!tags && <PostTags link={tags} route="tag" text="Saiba mais:" />}
   </S.Wrapper>
 )
 

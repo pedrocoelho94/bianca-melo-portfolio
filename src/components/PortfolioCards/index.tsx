@@ -38,7 +38,7 @@ const PostsBox = ({
       <S.Category>
         {categories.map((category) => (
           <div key={category.slug}>
-            <Link href={`${category.slug}`}>
+            <Link href={`/${route}/cat/${category.slug}`}>
               <a>{category.title}</a>
             </Link>
           </div>
