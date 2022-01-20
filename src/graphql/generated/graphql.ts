@@ -6994,10 +6994,13 @@ export type Get_Project_By_SlugQueryVariables = Exact<{
 
 export type Get_Project_By_SlugQuery = { __typename?: 'Query', projects: Array<{ __typename?: 'Project', title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, demoProject?: string | null | undefined, cover?: { __typename?: 'Asset', url: string } | null | undefined, description: { __typename?: 'RichText', html: string }, categories: Array<{ __typename?: 'Category', title: string, slug: string }> }> };
 
-export type Get_PostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type Get_PostsQueryVariables = Exact<{
+  limit: Scalars['Int'];
+  offset: Scalars['Int'];
+}>;
 
 
-export type Get_PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any }> };
+export type Get_PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, categories: Array<{ __typename?: 'Category', slug: string, title: string }> }> };
 
 export type Get_Post_By_SlugQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -7006,16 +7009,13 @@ export type Get_Post_By_SlugQueryVariables = Exact<{
 
 export type Get_Post_By_SlugQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, cover?: { __typename?: 'Asset', url: string } | null | undefined, content: { __typename?: 'RichText', html: string }, categories: Array<{ __typename?: 'Category', title: string, slug: string }>, tags: Array<{ __typename?: 'Tag', title: string, slug: string }> }> };
 
-export type Get_Posts_By_CategoryQueryVariables = Exact<{
-  slug: Scalars['String'];
+export type Get_Posts_ByQueryVariables = Exact<{
+  categorySlug?: InputMaybe<Scalars['String']>;
+  tagSlug?: InputMaybe<Scalars['String']>;
+  limit: Scalars['Int'];
+  offset: Scalars['Int'];
+  slug?: InputMaybe<Scalars['String']>;
 }>;
 
 
-export type Get_Posts_By_CategoryQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any, categories: Array<{ __typename?: 'Category', id: string, title: string, slug: string }> }> };
-
-export type Get_Posts_By_TagQueryVariables = Exact<{
-  slug: Scalars['String'];
-}>;
-
-
-export type Get_Posts_By_TagQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string, slug: string, excerpt?: string | null | undefined, createdAt: any }> };
+export type Get_Posts_ByQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: string, title: string }> };

@@ -65,13 +65,17 @@ export const GET_PROJECT_BY_SLUG = gql`
 `
 
 export const GET_POSTS = gql`
-  query GET_POSTS {
-    posts(orderBy: createdAt_DESC) {
+  query GET_POSTS($limit: Int!, $offset: Int!) {
+    posts(orderBy: createdAt_DESC, first: $limit, skip: $offset) {
       id
       title
       slug
       excerpt
       createdAt
+      categories {
+        slug
+        title
+      }
     }
   }
 `
@@ -101,11 +105,25 @@ export const GET_POST_BY_SLUG = gql`
     }
   }
 `
-export const GET_POSTS_BY_CATEGORY = gql`
-  query GET_POSTS_BY_CATEGORY($slug: String!) {
+export const GET_POSTS_BY = gql`
+  query GET_POSTS_BY(
+    $categorySlug: String
+    $tagSlug: String
+    $limit: Int!
+    $offset: Int!
+    $slug: String
+  ) {
     posts(
+      first: $limit
+      skip: $offset
       orderBy: createdAt_DESC
-      where: { categories_some: { slug: $slug } }
+      where: {
+        OR: [
+          { categories_some: { slug: $categorySlug } }
+          { tags_some: { slug: $tagSlug } }
+          { slug_not_contains: $slug }
+        ]
+      }
     ) {
       id
       title
@@ -113,21 +131,13 @@ export const GET_POSTS_BY_CATEGORY = gql`
       excerpt
       createdAt
       categories {
-        id
         title
         slug
       }
-    }
-  }
-`
-export const GET_POSTS_BY_TAG = gql`
-  query GET_POSTS_BY_TAG($slug: String!) {
-    posts(orderBy: createdAt_DESC, where: { tags_some: { slug: $slug } }) {
-      id
-      title
-      slug
-      excerpt
-      createdAt
+      tags {
+        title
+        slug
+      }
     }
   }
 `

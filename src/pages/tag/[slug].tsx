@@ -1,17 +1,16 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-
-import PostsTemplate from 'templates/PostsTemplate'
-import formatDate from 'utils/format-date'
-import { PostsProps } from '..'
-
+import { PostsProps } from 'pages/posts'
 import { loadPosts } from 'services/loadPosts'
+import PostsTemplate from 'templates/PostsTemplate'
 
-export default function PostsCategoryPage({ posts, variables }: PostsProps) {
+import formatDate from 'utils/format-date'
+
+export default function TagPage({ posts, variables }: PostsProps) {
   const router = useRouter()
 
-  const categoryName = posts[0].categories.filter(
-    (category) => category.slug === router.query.slug
+  const categoryName = posts[0].tags.filter(
+    (tag) => tag.slug === router.query.slug
   )[0].title
 
   return (
@@ -35,7 +34,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     offset: 0,
     limit: 10,
     slug: '',
-    categorySlug: params?.slug as string
+    tagSlug: params?.slug as string
   }
   const { posts } = await loadPosts(variables)
 
@@ -46,12 +45,10 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
   })
 
-  if (!newPosts.length) {
-    return { notFound: true }
-  }
+  console.log(newPosts)
 
   return {
-    revalidate: 60 * 60 * 24, // 1 day
+    revalidate: 60 * 60 * 24,
     props: {
       posts: newPosts,
       variables
