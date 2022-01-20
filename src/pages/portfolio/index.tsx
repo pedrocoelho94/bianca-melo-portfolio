@@ -1,7 +1,5 @@
-import client from 'graphql/client'
-import { Get_ProjectsQuery } from 'graphql/generated/graphql'
-import { GET_PROJECTS } from 'graphql/queries'
 import { GetStaticProps } from 'next'
+import { loadProjects } from 'services/loadProjects'
 import PortfolioTemplate from 'templates/PortfolioTemplate'
 import formatDate from 'utils/format-date'
 
@@ -10,7 +8,7 @@ type category = {
   title: string
 }
 
-export type Portolio = {
+export type Portfolio = {
   id: string
   title: string
   slug: string
@@ -19,19 +17,32 @@ export type Portolio = {
     url: string
   }
   categories: category[]
+  createdAt: string
+}
+
+type VariablesProps = {
+  limit: number
+  offset: number
 }
 
 export type PortfolioProps = {
-  projects: Portolio[]
+  projects: Portfolio[]
   categoryName?: string
+  variables: VariablesProps
 }
 
-export default function PortfolioPage({ projects }: PortfolioProps) {
-  return <PortfolioTemplate projects={projects} />
+export default function PortfolioPage({ projects, variables }: PortfolioProps) {
+  return <PortfolioTemplate projects={projects} variables={variables} />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { projects } = await client.request<Get_ProjectsQuery>(GET_PROJECTS)
+  const variables = {
+    offset: 0,
+    limit: 10,
+    slug: ' '
+  }
+
+  const { projects } = await loadProjects(variables)
 
   if (!projects.length) return { notFound: true }
 
@@ -48,6 +59,10 @@ export const getStaticProps: GetStaticProps = async () => {
   })
 
   return {
-    props: { projects: projectsList }
+    revalidate: 60 * 60 * 24,
+    props: {
+      projects: projectsList,
+      variables
+    }
   }
 }

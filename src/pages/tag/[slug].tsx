@@ -9,15 +9,15 @@ import formatDate from 'utils/format-date'
 export default function TagPage({ posts, variables }: PostsProps) {
   const router = useRouter()
 
-  const categoryName = posts[0].tags.filter(
+  const tagName = posts[0].tags.filter(
     (tag) => tag.slug === router.query.slug
   )[0].title
 
   return (
     <PostsTemplate
       posts={posts}
-      categoryName={categoryName}
       variables={variables}
+      titlePage={`Tag: ${tagName}`}
     />
   )
 }
@@ -38,14 +38,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   const { posts } = await loadPosts(variables)
 
+  if (!posts.length) {
+    return {
+      notFound: true
+    }
+  }
+
   const newPosts = posts.map((post) => {
     return {
       ...post,
       createdAt: formatDate(post.createdAt as string)
     }
   })
-
-  console.log(newPosts)
 
   return {
     revalidate: 60 * 60 * 24,

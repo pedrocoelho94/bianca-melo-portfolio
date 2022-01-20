@@ -19,7 +19,7 @@ const Header = () => {
           <S.Menu>
             <HeaderLink href="/portfolio">Portfolio</HeaderLink>
             <HeaderLink href="/posts">Blog</HeaderLink>
-            <HeaderLink href="/about">Sobre</HeaderLink>
+            <HeaderLink href="/contato">Contato</HeaderLink>
           </S.Menu>
 
           <S.NavIcon
@@ -37,7 +37,7 @@ const Header = () => {
         <S.MenuMobileLinks open={toggle}>
           <HeaderLink href="/portfolio">Portfolio</HeaderLink>
           <HeaderLink href="/posts">Blog</HeaderLink>
-          <HeaderLink href="/about">Sobre</HeaderLink>
+          <HeaderLink href="/contato">Contato</HeaderLink>
         </S.MenuMobileLinks>
       </S.MenuMobile>
     </S.Wrapper>

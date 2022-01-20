@@ -17,7 +17,7 @@ type Tag = {
   slug: string
 }
 
-type PostProps = {
+export type SinglePostProps = {
   id: string
   title: string
   slug: string
@@ -25,6 +25,9 @@ type PostProps = {
   createdAt: string
   categories: Category[]
   tags: Tag[]
+  cover: {
+    url: string
+  }
 }
 
 type VariablesProps = {
@@ -33,13 +36,20 @@ type VariablesProps = {
 }
 
 export type PostsProps = {
-  posts: PostProps[]
+  posts: SinglePostProps[]
   categoryName?: string
   variables: VariablesProps
+  titlePage: string
 }
 
 export default function PostsPage({ posts, variables }: PostsProps) {
-  return <PostsTemplate posts={posts} variables={variables} />
+  return (
+    <PostsTemplate
+      posts={posts}
+      variables={variables}
+      titlePage={'Postagens Recentes'}
+    />
+  )
 }
 
 export const getStaticProps: GetStaticProps = async () => {

@@ -7,16 +7,27 @@ export const Wrapper = styled.div`
     box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.6);
   `}
 `
-export const CoverContainer = styled.div``
+export const CoverContainer = styled.div`
+  position: relative;
+  padding-bottom: 56.25%;
+  max-width: 100%;
+`
 
 export const Cover = styled.img`
-  border-radius: 1rem 1rem 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  height: 220px;
+  overflow: hidden;
+  border-radius: 1rem 1rem 0 0;
 `
 export const Content = styled.div`
   ${({ theme }) => css`
     padding: ${theme.spacings.medium};
+
+    min-height: 28rem;
   `}
 `
 export const Date = styled.time``
@@ -39,7 +50,7 @@ export const Category = styled.div`
 export const Title = styled.h1`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.small};
-    font-size: 2.8rem;
+    font-size: ${theme.font.sizes.medium};
 
     a {
       color: ${theme.colors.primary};
@@ -54,8 +65,7 @@ export const Title = styled.h1`
 export const Excerpt = styled.p`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.small};
-    font-size: 1.8rem;
-
+    font-size: ${theme.font.sizes.small};
     a {
       color: ${theme.colors.primary};
 

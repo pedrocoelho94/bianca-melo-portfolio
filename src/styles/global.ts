@@ -26,13 +26,13 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
   }
 
-  @media (max-width: 235px){
+  @media (max-width: 270px){
     html {
       font-size: 50%;
     }
   }
 
-  @media (max-width: 180px){
+  @media (max-width: 220px){
     html {
       font-size: 43.75%;
     }

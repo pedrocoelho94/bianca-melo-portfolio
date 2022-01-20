@@ -17,8 +17,8 @@ export default function PostsCategoryPage({ posts, variables }: PostsProps) {
   return (
     <PostsTemplate
       posts={posts}
-      categoryName={categoryName}
       variables={variables}
+      titlePage={`Categoria: ${categoryName}`}
     />
   )
 }
@@ -39,16 +39,18 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   const { posts } = await loadPosts(variables)
 
+  if (!posts.length) {
+    return {
+      notFound: true
+    }
+  }
+
   const newPosts = posts.map((post) => {
     return {
       ...post,
       createdAt: formatDate(post.createdAt as string)
     }
   })
-
-  if (!newPosts.length) {
-    return { notFound: true }
-  }
 
   return {
     revalidate: 60 * 60 * 24, // 1 day

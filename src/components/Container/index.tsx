@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
+import media, { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+  tiny: '360px'
+})
 
 export const Container = styled.div`
   ${({ theme }) => css`
@@ -11,12 +15,12 @@ export const Container = styled.div`
     padding-right: calc(${theme.grid.gutter});
 
     ${media.lessThan('medium')`
-    padding-left: calc(${theme.grid.gutter} * 0.6);
-      padding-right: calc(${theme.grid.gutter}* 0.6);
+      padding-left: calc(${theme.grid.gutter} * 0.8);
+      padding-right: calc(${theme.grid.gutter}* 0.8);
     `}
 
-    ${media.lessThan('small')`
-    padding-left: calc(${theme.grid.gutter} * 0.4);
+    ${customMedia.lessThan('tiny')`
+      padding-left: calc(${theme.grid.gutter} * 0.4);
       padding-right: calc(${theme.grid.gutter}* 0.4);
     `}
   `}

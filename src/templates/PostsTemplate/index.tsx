@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 import formatDate from 'utils/format-date'
 import { loadPosts } from 'services/loadPosts'
 
-const PostsTemplate = ({ posts, variables, categoryName }: PostsProps) => {
+const PostsTemplate = ({ posts, variables, titlePage }: PostsProps) => {
   const [statePosts, setStatePosts] = useState(posts)
   const [stateVariables, setStateVariables] = useState(variables)
   const [buttonDisabled, setButtonDisabled] = useState(false)
@@ -33,8 +33,6 @@ const PostsTemplate = ({ posts, variables, categoryName }: PostsProps) => {
 
     const data = await loadPosts(newVariables)
 
-    console.log(data)
-
     const morePosts = data.posts.map((post) => {
       return {
         ...post,
@@ -55,10 +53,11 @@ const PostsTemplate = ({ posts, variables, categoryName }: PostsProps) => {
   return (
     <>
       <Head>
-        <title>{categoryName || 'Posts'} | Bianca Melo</title>
+        <title>{titlePage} | Bianca Melo</title>
       </Head>
       <BaseTemplate>
         <S.ContainerPosts>
+          <S.Title>{titlePage}</S.Title>
           <S.PostContainer>
             {statePosts.map((post) => (
               <PostsCard

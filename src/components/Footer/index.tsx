@@ -13,8 +13,8 @@ const Footer = () => (
           <Link href="/posts">
             <a>Blog</a>
           </Link>
-          <Link href="/about">
-            <a>Sobre</a>
+          <Link href="/contato">
+            <a>Contato</a>
           </Link>
         </S.Nav>
         <S.Developer>

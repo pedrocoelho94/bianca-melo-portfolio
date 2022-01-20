@@ -2,7 +2,7 @@ export default {
   name: 'default',
   grid: {
     container: '120rem',
-    gutter: '3.2rem',
+    gutter: '5.2rem',
     maxContent: '80rem'
   },
   colors: {

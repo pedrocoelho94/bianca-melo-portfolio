@@ -1,16 +1,8 @@
-import BaseTemplate from 'templates/Base'
 import { GetStaticProps } from 'next'
-import { Container } from 'components/Container'
+import NotFoundTemplate from 'templates/NotFoundTemplate'
 
 export default function Page404() {
-  return (
-    <BaseTemplate>
-      <Container>
-        <h1>404: Not Found</h1>
-        <p>O link que você está tentando acessar não existe.</p>
-      </Container>
-    </BaseTemplate>
-  )
+  return <NotFoundTemplate />
 }
 
 export const getStaticProps: GetStaticProps = async () => {
