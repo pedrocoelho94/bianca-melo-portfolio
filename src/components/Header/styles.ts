@@ -151,8 +151,8 @@ export const SidenavContainer = styled.div<SidenavProps>`
     bottom: 0;
     left: -100%;
     z-index: ${theme.layers.layer8};
-    background-color: ${theme.colors.black};
-    opacity: 1;
+    background-color: ${theme.colors.background};
+    opacity: 0.95;
     overflow-x: hidden;
     padding: ${theme.spacings.medium};
     transition: left 0.3s ease-in-out;
@@ -238,12 +238,12 @@ export const DropdownContainer = styled.div<SidenavProps>`
 
     ${isPortfolioOpen &&
     `
-      max-height: 20rem;
+      max-height: 25rem;
       margin-bottom: 2rem;
     `}
 
     a {
-      font-size: ${theme.font.sizes.normal};
+      font-size: ${theme.font.sizes.small};
       margin-bottom: 1rem;
     }
   `}
