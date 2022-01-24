@@ -42,13 +42,17 @@ const Header = () => {
     setToggle(false)
   }, [])
 
+  function closeMenu() {
+    setToggle(false)
+  }
+
   useEffect(() => {
-    if (toggle) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'initial'
+    window.addEventListener('scroll', closeMenu)
+
+    return () => {
+      window.removeEventListener('scroll', closeMenu)
     }
-  }, [toggle])
+  }, [])
 
   return (
     <S.Wrapper>
