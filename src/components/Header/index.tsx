@@ -42,13 +42,13 @@ const Header = () => {
     setToggle(false)
   }, [])
 
-  // useEffect(() => {
-  //   if (toggle) {
-  //     document.body.style.overflow = 'hidden'
-  //   } else {
-  //     document.body.style.overflow = 'initial'
-  //   }
-  // }, [toggle])
+  useEffect(() => {
+    if (toggle) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'initial'
+    }
+  }, [toggle])
 
   return (
     <S.Wrapper>
