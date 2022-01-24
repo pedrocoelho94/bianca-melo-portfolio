@@ -22,7 +22,8 @@ export const Content = styled.div`
 `
 
 export const Logo = styled.img`
-  height: 5.5rem;
+  padding-top: 0.5rem;
+  height: 6rem;
 
   ${media.lessThan('small')`
   height: 5rem;
