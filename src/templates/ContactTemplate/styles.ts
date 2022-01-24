@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.div`
-  min-height: 30rem;
+  min-height: 50rem;
+  max-width: 80rem;
+  margin: 0 auto;
 `
 
 export const Title = styled.h1`

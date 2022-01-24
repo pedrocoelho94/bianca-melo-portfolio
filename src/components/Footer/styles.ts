@@ -10,7 +10,7 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: ${theme.spacings.large} 0;
+    padding: ${theme.spacings.xhuge} 0;
     gap: 2rem;
     height: 100%;
   `}
