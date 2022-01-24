@@ -1,13 +1,13 @@
 import styled, { css } from 'styled-components'
-import { Container } from 'components/Container'
 
 export const Wrapper = styled.div``
 
-export const ContainerPosts = styled(Container)`
+export const ContainerPosts = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin: 0 auto;
     max-width: ${theme.grid.maxContent};
   `}
 `
