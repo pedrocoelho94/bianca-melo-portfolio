@@ -43,23 +43,10 @@ const Header = () => {
   }, [])
 
   useEffect(() => {
-    let scrollTop: number
-    let scrollLeft: number
-
-    function disableScroll() {
-      // Get the current page scroll position
-      scrollTop = window.pageYOffset || document.documentElement.scrollTop
-      scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
-    }
-
     if (toggle) {
-      disableScroll()
-      window.onscroll = function () {
-        window.scrollTo(scrollLeft, scrollTop)
-      }
+      document.body.style.overflow = 'hidden'
     } else {
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      window.onscroll = function () {}
+      document.body.style.overflow = 'initial'
     }
   }, [toggle])
 
