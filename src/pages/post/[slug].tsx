@@ -65,7 +65,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     createdAt: formatDate(post.createdAt)
   }
 
-  console.log(newPost)
   return {
     props: { post: newPost }
   }

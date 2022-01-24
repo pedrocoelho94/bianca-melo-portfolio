@@ -3,7 +3,7 @@ import * as S from './styles'
 const Hero = () => (
   <S.Wrapper>
     <S.AboutContainer>
-      <S.AboutImage src="/img/me.jpg" />
+      <S.AboutImage src="/img/me.JPG" alt="me" />
       <S.Welcome>Olá, conheça meus principais trabalhos</S.Welcome>
       <S.AboutInfo>
         Graduada em Jornalismo pela Universidade Federal de Alagoas (Ufal).
