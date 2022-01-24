@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components'
-import media from 'styled-media-query'
+import media, { generateMedia } from 'styled-media-query'
+
+const customMedia = generateMedia({
+  tiny: '360px'
+})
 
 export const Wrapper = styled.header`
   ${({ theme }) => css`
@@ -24,6 +28,7 @@ export const Content = styled.div`
 export const Logo = styled.img`
   padding-top: 0.5rem;
   height: 6rem;
+  width: max-content;
 
   ${media.lessThan('small')`
   height: 5rem;
@@ -158,8 +163,17 @@ export const SidenavContainer = styled.div<SidenavProps>`
     z-index: ${theme.layers.aboveAll};
     background-color: ${theme.colors.background};
     overflow-x: hidden;
-    padding: ${theme.spacings.large};
+    padding: ${theme.spacings.small};
     transition: left 0.3s ease-in-out;
+
+    ${media.greaterThan('small')`
+      padding: 0 ${theme.spacings.large};
+    `}
+
+    a {
+      display: block;
+      margin-bottom: ${theme.spacings.medium};
+    }
 
     ${media.greaterThan('medium')`
       display: none;
@@ -197,6 +211,7 @@ export const Sidenav = styled.nav`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     opacity: inherit;
     transition: height 0.2s ease-in-out;
     z-index: ${theme.layers.layer9};
@@ -206,7 +221,7 @@ export const Sidenav = styled.nav`
       font-weight: 700;
       color: ${theme.colors.primary};
       transition: all 0.3s ease-in-out;
-      font-size: 2.4rem;
+      font-size: ${theme.font.sizes.medium};
       border: none;
       border-bottom: 2px solid transparent;
       background: transparent;
@@ -216,6 +231,12 @@ export const Sidenav = styled.nav`
         filter: brightness(0.6);
       }
     }
+
+    ${customMedia.lessThan('tiny')`
+      a, button{
+        font-size: ${theme.font.sizes.normal};
+      }
+    `}
   `}
 `
 
@@ -254,5 +275,11 @@ export const DropdownContainer = styled.div<SidenavProps>`
       font-size: ${theme.font.sizes.small};
       margin-bottom: 1rem;
     }
+
+    ${customMedia.lessThan('tiny')`
+      a{
+        font-size: ${theme.font.sizes.small};
+      }
+    `}
   `}
 `

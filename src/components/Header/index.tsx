@@ -98,13 +98,13 @@ const Header = () => {
       </Container>
 
       <S.SidenavContainer open={toggle}>
-        <S.Sidenav>
-          <Link href="/" prefetch={false}>
-            <a onClick={() => setToggle(false)}>
-              <S.Logo src="/img/biancaMelo.svg" alt="Logo" />
-            </a>
-          </Link>
+        <Link href="/" prefetch={false}>
+          <a onClick={() => setToggle(false)}>
+            <S.Logo src="/img/biancaMelo.svg" alt="Logo" />
+          </a>
+        </Link>
 
+        <S.Sidenav>
           <S.DropdownBtn
             isPortfolioOpen={isPortfolioOpen}
             onClick={() => setIsPortfolioOpen(!isPortfolioOpen)}
