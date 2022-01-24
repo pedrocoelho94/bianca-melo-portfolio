@@ -42,6 +42,25 @@ const Header = () => {
     setToggle(false)
   }, [])
 
+  let scrollTop: number
+  let scrollLeft: number
+
+  function disableScroll() {
+    // Get the current page scroll position
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft
+  }
+
+  if (toggle) {
+    disableScroll()
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop)
+    }
+  } else {
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    window.onscroll = function () {}
+  }
+
   return (
     <S.Wrapper>
       <Container>
