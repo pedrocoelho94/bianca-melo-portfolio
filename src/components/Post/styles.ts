@@ -61,7 +61,22 @@ export const Tags = styled.div`
   gap: 1rem;
 `
 
-export const Demo = styled.p``
+export const Demo = styled.p`
+  ${({ theme }) => css`
+    padding: ${theme.spacings.medium} ${theme.spacings.medium};
+    background: ${theme.colors.secondary};
+    border-radius: 1rem;
+    margin: ${theme.spacings.medium} 0;
+    font-weight: bold;
+    font-size: ${theme.font.sizes.normal};
+    letter-spacing: 0.2rem;
+    transition: filter 0.2s ease-in-out;
+
+    a:hover {
+      filter: brightness(0.8);
+    }
+  `}
+`
 
 export const Description = styled.div`
   ${({ theme }) => css`

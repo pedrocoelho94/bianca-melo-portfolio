@@ -1,4 +1,5 @@
 import { Container } from 'components/Container'
+import { Instagram, LinkedinIn } from '@styled-icons/fa-brands'
 import Link from 'next/link'
 import * as S from './styles'
 
@@ -17,6 +18,23 @@ const Footer = () => (
             <a>Contato</a>
           </Link>
         </S.Nav>
+        <S.Socials>
+          <a
+            href="https://www.instagram.com/srtabiancamelo/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Instagram />
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/bianca-melo-615774140/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <LinkedinIn />
+          </a>
+        </S.Socials>
         <S.Developer>
           <span>Desenvolvido por </span>
           <a

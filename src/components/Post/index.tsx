@@ -49,7 +49,12 @@ const Post = ({
 
     <S.Cover src={cover} alt="" />
 
-    <S.Demo>{demoProject}</S.Demo>
+    <S.Demo>
+      <a href={demoProject} target="_blank" rel="noreferrer">
+        Ver projeto
+      </a>
+    </S.Demo>
+
     {!!description && (
       <S.Description dangerouslySetInnerHTML={{ __html: description }} />
     )}

@@ -2,17 +2,17 @@ import styled, { css } from 'styled-components'
 
 export const Wrapper = styled.footer`
   ${({ theme }) => css`
-    height: 20rem;
     background-color: ${theme.colors.secondary};
   `}
 `
 export const Content = styled.div`
   ${({ theme }) => css`
-    height: 20rem;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     padding: ${theme.spacings.large} 0;
+    gap: 2rem;
+    height: 100%;
   `}
 `
 
@@ -34,11 +34,35 @@ export const Nav = styled.nav`
   `}
 `
 
-export const Developer = styled.div`
-  display: block;
-  text-align: center;
+export const Socials = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    color: white;
 
-  span {
+    a {
+      height: 3.5rem;
+      width: 3.5rem;
+      color: ${theme.colors.primary};
+      transition: color 0.2s ease-in-out;
+
+      &:hover {
+        color: ${theme.colors.highlight};
+      }
+    }
+  `}
+`
+
+export const Developer = styled.div`
+  ${({ theme }) => css`
     display: block;
-  }
+    text-align: center;
+    padding-top: ${theme.spacings.large};
+
+    span {
+      display: block;
+    }
+  `}
 `
