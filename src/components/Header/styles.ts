@@ -12,16 +12,20 @@ export const Wrapper = styled.header`
   `}
 `
 export const Content = styled.div`
-  height: 6rem;
-  display: flex;
-  align-items: center;
+  ${({ theme }) => css`
+    height: 6rem;
+    display: flex;
+    align-items: center;
+
+    z-index: ${theme.layers.layer9};
+  `}
 `
 
 export const Logo = styled.img`
   height: 5.5rem;
 
   ${media.lessThan('small')`
-  height: 4rem;
+  height: 5rem;
   `}
 `
 
@@ -145,16 +149,15 @@ type SidenavProps = {
 
 export const SidenavContainer = styled.div<SidenavProps>`
   ${({ theme, open }) => css`
-    height: calc(100% - 6rem);
-    /* width: min(100%, 280px); */
+    height: 100%;
+    width: min(72%, 280px);
     position: fixed;
     bottom: 0;
     left: -100%;
-    z-index: ${theme.layers.layer8};
+    z-index: ${theme.layers.aboveAll};
     background-color: ${theme.colors.background};
-    opacity: 0.95;
     overflow-x: hidden;
-    padding: ${theme.spacings.medium};
+    padding: ${theme.spacings.large};
     transition: left 0.3s ease-in-out;
 
     ${media.greaterThan('medium')`
@@ -175,6 +178,10 @@ export const shadowBg = styled.div<SidenavProps>`
     opacity: 0;
     transition: opacity 0.2s ease-in-out;
     pointer-events: none;
+
+    ${media.greaterThan('medium')`
+      display: none;
+    `}
 
     ${open &&
     `

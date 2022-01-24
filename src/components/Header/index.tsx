@@ -42,13 +42,13 @@ const Header = () => {
     setToggle(false)
   }, [])
 
-  useEffect(() => {
-    if (toggle) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'initial'
-    }
-  }, [toggle])
+  // useEffect(() => {
+  //   if (toggle) {
+  //     document.body.style.overflow = 'hidden'
+  //   } else {
+  //     document.body.style.overflow = 'initial'
+  //   }
+  // }, [toggle])
 
   return (
     <S.Wrapper>
@@ -95,6 +95,12 @@ const Header = () => {
 
       <S.SidenavContainer open={toggle}>
         <S.Sidenav>
+          <Link href="/" prefetch={false}>
+            <a onClick={() => setToggle(false)}>
+              <S.Logo src="/img/biancaMelo.svg" alt="Logo" />
+            </a>
+          </Link>
+
           <S.DropdownBtn
             isPortfolioOpen={isPortfolioOpen}
             onClick={() => setIsPortfolioOpen(!isPortfolioOpen)}
