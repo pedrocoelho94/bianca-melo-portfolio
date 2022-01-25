@@ -4,7 +4,7 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     background: ${theme.colors.secondary};
     border-radius: 1rem;
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
   `}
 `
 export const CoverContainer = styled.div`

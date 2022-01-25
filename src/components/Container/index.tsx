@@ -15,13 +15,13 @@ export const Container = styled.div`
     padding-right: calc(${theme.grid.gutter});
 
     ${media.lessThan('medium')`
-      padding-left: calc(${theme.grid.gutter} * 0.8);
-      padding-right: calc(${theme.grid.gutter}* 0.8);
+      padding-left: calc(${theme.grid.gutter} * 0.6);
+      padding-right: calc(${theme.grid.gutter}* 0.6);
     `}
 
     ${customMedia.lessThan('tiny')`
-      padding-left: calc(${theme.grid.gutter} * 0.4);
-      padding-right: calc(${theme.grid.gutter}* 0.4);
+      padding-left: calc(${theme.grid.gutter} * 0.3);
+      padding-right: calc(${theme.grid.gutter}* 0.3);
     `}
   `}
 `

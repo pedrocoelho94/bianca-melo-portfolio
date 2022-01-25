@@ -29,9 +29,11 @@ export const Logo = styled.img`
   padding-top: 0.5rem;
   height: 6rem;
   width: max-content;
+  text-align: left;
+  width: 100%;
 
   ${media.lessThan('small')`
-  height: 5rem;
+    height: 5rem;
   `}
 `
 
@@ -79,7 +81,7 @@ export const Line = styled.span<OpenProps>`
     width: 25px;
     height: 3px;
     margin: 5px;
-    background-color: ${theme.colors.white};
+    background-color: ${theme.colors.primary};
     transition: ${theme.transitions.faster};
 
     :nth-child(2) {
@@ -171,7 +173,7 @@ export const SidenavContainer = styled.div<SidenavProps>`
     `}
 
     a {
-      display: block;
+      display: inline-block;
       margin-bottom: ${theme.spacings.medium};
     }
 
@@ -260,6 +262,8 @@ export const DropdownBtn = styled.button<SidenavProps>`
 export const DropdownContainer = styled.div<SidenavProps>`
   ${({ theme, isPortfolioOpen }) => css`
     display: flex;
+
+    gap: 1rem;
     max-height: 0;
     overflow: hidden;
     flex-direction: column;
@@ -267,7 +271,7 @@ export const DropdownContainer = styled.div<SidenavProps>`
 
     ${isPortfolioOpen &&
     `
-      max-height: 25rem;
+      max-height: 30rem;
       margin-bottom: 2rem;
     `}
 

@@ -41,7 +41,7 @@ export const PostContainer = styled.div`
     grid-template-columns: 1fr 2fr;
     background: ${theme.colors.secondary};
     border-radius: 1rem;
-    box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
 
     ${media.lessThan('medium')`
     grid-template-columns: 1fr;
