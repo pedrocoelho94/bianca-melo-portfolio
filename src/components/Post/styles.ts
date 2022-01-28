@@ -78,10 +78,10 @@ export const Demo = styled.p`
   `}
 `
 
-export const Description = styled.div`
+export const Description = styled.article`
   ${({ theme }) => css`
     letter-spacing: 0.2px;
-    line-height: 1.5;
+    line-height: 1.8;
     font-size: ${theme.font.sizes.normal};
 
     ${media.lessThan('small')`
@@ -90,6 +90,13 @@ export const Description = styled.div`
 
     p {
       margin-bottom: 4rem;
+      word-break: break-word;
+    }
+
+    blockquote {
+      margin-bottom: 4rem;
+      border-left: 2px solid ${theme.colors.highlight};
+      padding-left: 2rem;
     }
   `}
 `
